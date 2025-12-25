@@ -12,7 +12,7 @@ client = OpenAI(
 # 2. 页面装修 (对应你设计的 AI 法务助手风格)
 st.set_page_config(page_title="AI 法务助手", page_icon="⚖️")
 st.title("⚖️ AI 法务助手 - 智能大脑")
-st.caption("基于 OpenAI 标准库驱动 | 国内环境直连测试")
+st.caption("基于 OpenAI 标准库驱动 | 国内环境直连")
 
 # 3. 初始化对话历史 (session_state 就像量化交易中的历史K线缓存)
 if "messages" not in st.session_state:
@@ -47,4 +47,4 @@ if prompt := st.chat_input("请输入您的法律问题..."):
             # 将回答存入历史，以便 AI 记得上下文
             st.session_state.messages.append({"role": "assistant", "content": answer})
         except Exception as e:
-            st.error(f"连接 AI 服务器失败，请检查 API Key 或网络：{str(e)}")
+            st.error(f"连接 AI 服务器失败，请检查网络连接：{str(e)}")
