@@ -4,7 +4,7 @@ from openai import OpenAI
 # 1. 基础配置：这里是以阿里通义千问为例的“通用插座”配置
 # 如果以后换成腾讯或DeepSeek，只需修改下面这两行
 client = OpenAI(
-    api_key="sk-b52fd42209394181bb4cefc03d957377",
+    api_key="API-KEY",
     base_url="https://dashscope.aliyuncs.com/compatible-mode/v1"
 )
 
@@ -46,4 +46,5 @@ if prompt := st.chat_input("请输入您的法律问题..."):
             # 将回答存入历史，以便 AI 记得上下文
             st.session_state.messages.append({"role": "assistant", "content": answer})
         except Exception as e:
+
             st.error(f"连接 AI 服务器失败，请检查 API Key 或网络：{str(e)}")
